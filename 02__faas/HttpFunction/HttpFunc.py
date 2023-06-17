@@ -1,13 +1,14 @@
 import json
 import boto3
+import os
 
 sqs = boto3.client('sqs')
 
 # Specify the URL of your SQS queue
-queue_url = 'https://sqs.us-east-2.amazonaws.com/846446690345/test_queue'  # replace with your queue URL
+queue_url = os.getenv("SQS_URL")
 
 
-def lambda_handler(event, context):
+def send_to_sqs_on_http_trigger(event, context):
     value = event.get('id', None)
     value_from_query = event.get('queryStringParameters', None)
     if value_from_query:

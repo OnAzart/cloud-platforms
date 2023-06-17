@@ -2,7 +2,7 @@ import json
 import boto3
 
 
-def lambda_handler(event, context):
+def sqs_to_s3(event, context):
     # Create an S3 client
     s3 = boto3.client('s3')
     # The name of your bucket
