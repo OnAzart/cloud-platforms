@@ -8,7 +8,7 @@ Scans cloud infrastructure configurations to find misconfigurations. *Terraform,
 
 ### Fixed:
 - SQS query encrypted
-- Concurrency of both lambda functions is limited to 2
+- Concurrency of both lambda functions is disabled
 
 ### Important from lection:
 - (Almost) each cloud has built-in policy-engines. 

@@ -5,6 +5,7 @@ All services were added to estimate.
 The biggest estimated cost are for storage. (Object storage and Database)
 The next one major cost is for 3 Functions, cost is based on the duration and memory used.
 
+![expected_cost_general.png](images_hw8_cp%2Fexpected_cost_general.png)
 **In general, estimated cost for month, including free tier is approximately 123$** 
 
 ---
