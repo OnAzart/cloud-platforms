@@ -16,7 +16,8 @@ data "aws_iam_policy_document" "sqs_policy" {
     effect = "Allow"
     actions = ["sqs:SendMessage"]
     resources = [
-      "arn:aws:sqs:${var.region}:${var.account_id}:${var.sqs_name}"
+      "arn:aws:sqs:${var.region}:${var.account_id}:${var.sqs_name}",
+      "logs:CreateLogGroup"
     ]
   }
 }
@@ -29,7 +30,8 @@ data "aws_iam_policy_document" "sqs_read_policy" {
       "sqs:DeleteMessage",
       "sqs:GetQueueAttributes",
       "sqs:ReceiveMessage",
-      "s3:PutObject"
+      "s3:PutObject",
+      "logs:CreateLogGroup"
     ]
     resources = [
       "arn:aws:sqs:${var.region}:${var.account_id}:${var.sqs_name}",
