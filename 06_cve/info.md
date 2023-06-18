@@ -5,3 +5,7 @@
 ## Trivy
 1.  `trivy image ghcr.io/mlflow/mlflow | grep "CRITICAL\|HIGH"`
 
+Further learning:
+- what is better to use
+- how to fix vulnerabilities (flow)
+

@@ -1,0 +1,391 @@
+
+       _               _              
+   ___| |__   ___  ___| | _______   __
+  / __| '_ \ / _ \/ __| |/ / _ \ \ / /
+ | (__| | | |  __/ (__|   < (_) \ V / 
+  \___|_| |_|\___|\___|_|\_\___/ \_/  
+                                      
+By bridgecrew.io | version: 2.3.294 
+
+terraform scan results:
+
+Passed checks: 42, Failed checks: 13, Skipped checks: 0
+
+Check: CKV_AWS_41: "Ensure no hard coded AWS access key and secret key exists in provider"
+	PASSED for resource: aws.default
+	File: /main.tf:11-13
+Check: CKV_AWS_41: "Ensure no hard coded AWS access key and secret key exists in provider"
+	PASSED for resource: module.event_storage.aws.default
+	File: /modules/event_storage/main.tf:1-3
+	Calling File: /main.tf:20-24
+Check: CKV_AWS_168: "Ensure SQS queue policy is not public by only allowing specific services or principals to access it"
+	PASSED for resource: module.event_storage.aws_sqs_queue.terraform_queue
+	File: /modules/event_storage/main.tf:5-11
+	Calling File: /main.tf:20-24
+Check: CKV_AWS_274: "Disallow IAM roles, users, and groups from using the AWS AdministratorAccess policy"
+	PASSED for resource: module.lambda.aws_iam_role.iam_for_http_lambda
+	File: /modules/lambda/iam.tf:41-49
+	Calling File: /main.tf:26-35
+Check: CKV_AWS_61: "Ensure AWS IAM policy does not allow assume role permission across all services"
+	PASSED for resource: module.lambda.aws_iam_role.iam_for_http_lambda
+	File: /modules/lambda/iam.tf:41-49
+	Calling File: /main.tf:26-35
+Check: CKV_AWS_60: "Ensure IAM role allows only specific services or principals to assume it"
+	PASSED for resource: module.lambda.aws_iam_role.iam_for_http_lambda
+	File: /modules/lambda/iam.tf:41-49
+	Calling File: /main.tf:26-35
+Check: CKV_AWS_274: "Disallow IAM roles, users, and groups from using the AWS AdministratorAccess policy"
+	PASSED for resource: module.lambda.aws_iam_role.iam_for_event_lambda
+	File: /modules/lambda/iam.tf:51-59
+	Calling File: /main.tf:26-35
+Check: CKV_AWS_61: "Ensure AWS IAM policy does not allow assume role permission across all services"
+	PASSED for resource: module.lambda.aws_iam_role.iam_for_event_lambda
+	File: /modules/lambda/iam.tf:51-59
+	Calling File: /main.tf:26-35
+Check: CKV_AWS_60: "Ensure IAM role allows only specific services or principals to assume it"
+	PASSED for resource: module.lambda.aws_iam_role.iam_for_event_lambda
+	File: /modules/lambda/iam.tf:51-59
+	Calling File: /main.tf:26-35
+Check: CKV_AWS_108: "Ensure IAM policies does not allow data exfiltration"
+	PASSED for resource: module.lambda.aws_iam_policy_document.assume_role
+	File: /modules/lambda/iam.tf:1-12
+	Calling File: /main.tf:26-35
+Check: CKV_AWS_111: "Ensure IAM policies does not allow write access without constraints"
+	PASSED for resource: module.lambda.aws_iam_policy_document.assume_role
+	File: /modules/lambda/iam.tf:1-12
+	Calling File: /main.tf:26-35
+Check: CKV_AWS_49: "Ensure no IAM policies documents allow "*" as a statement's actions"
+	PASSED for resource: module.lambda.aws_iam_policy_document.assume_role
+	File: /modules/lambda/iam.tf:1-12
+	Calling File: /main.tf:26-35
+Check: CKV_AWS_107: "Ensure IAM policies does not allow credentials exposure"
+	PASSED for resource: module.lambda.aws_iam_policy_document.assume_role
+	File: /modules/lambda/iam.tf:1-12
+	Calling File: /main.tf:26-35
+Check: CKV_AWS_356: "Ensure no IAM policies documents allow "*" as a statement's resource for restrictable actions"
+	PASSED for resource: module.lambda.aws_iam_policy_document.assume_role
+	File: /modules/lambda/iam.tf:1-12
+	Calling File: /main.tf:26-35
+Check: CKV_AWS_109: "Ensure IAM policies does not allow permissions management / resource exposure without constraints"
+	PASSED for resource: module.lambda.aws_iam_policy_document.assume_role
+	File: /modules/lambda/iam.tf:1-12
+	Calling File: /main.tf:26-35
+Check: CKV_AWS_283: "Ensure no IAM policies documents allow ALL or any AWS principal permissions to the resource"
+	PASSED for resource: module.lambda.aws_iam_policy_document.assume_role
+	File: /modules/lambda/iam.tf:1-12
+	Calling File: /main.tf:26-35
+Check: CKV_AWS_1: "Ensure IAM policies that allow full "*-*" administrative privileges are not created"
+	PASSED for resource: module.lambda.aws_iam_policy_document.assume_role
+	File: /modules/lambda/iam.tf:1-12
+	Calling File: /main.tf:26-35
+Check: CKV_AWS_110: "Ensure IAM policies does not allow privilege escalation"
+	PASSED for resource: module.lambda.aws_iam_policy_document.assume_role
+	File: /modules/lambda/iam.tf:1-12
+	Calling File: /main.tf:26-35
+Check: CKV_AWS_108: "Ensure IAM policies does not allow data exfiltration"
+	PASSED for resource: module.lambda.aws_iam_policy_document.sqs_policy
+	File: /modules/lambda/iam.tf:14-22
+	Calling File: /main.tf:26-35
+Check: CKV_AWS_111: "Ensure IAM policies does not allow write access without constraints"
+	PASSED for resource: module.lambda.aws_iam_policy_document.sqs_policy
+	File: /modules/lambda/iam.tf:14-22
+	Calling File: /main.tf:26-35
+Check: CKV_AWS_49: "Ensure no IAM policies documents allow "*" as a statement's actions"
+	PASSED for resource: module.lambda.aws_iam_policy_document.sqs_policy
+	File: /modules/lambda/iam.tf:14-22
+	Calling File: /main.tf:26-35
+Check: CKV_AWS_107: "Ensure IAM policies does not allow credentials exposure"
+	PASSED for resource: module.lambda.aws_iam_policy_document.sqs_policy
+	File: /modules/lambda/iam.tf:14-22
+	Calling File: /main.tf:26-35
+Check: CKV_AWS_356: "Ensure no IAM policies documents allow "*" as a statement's resource for restrictable actions"
+	PASSED for resource: module.lambda.aws_iam_policy_document.sqs_policy
+	File: /modules/lambda/iam.tf:14-22
+	Calling File: /main.tf:26-35
+Check: CKV_AWS_109: "Ensure IAM policies does not allow permissions management / resource exposure without constraints"
+	PASSED for resource: module.lambda.aws_iam_policy_document.sqs_policy
+	File: /modules/lambda/iam.tf:14-22
+	Calling File: /main.tf:26-35
+Check: CKV_AWS_283: "Ensure no IAM policies documents allow ALL or any AWS principal permissions to the resource"
+	PASSED for resource: module.lambda.aws_iam_policy_document.sqs_policy
+	File: /modules/lambda/iam.tf:14-22
+	Calling File: /main.tf:26-35
+Check: CKV_AWS_1: "Ensure IAM policies that allow full "*-*" administrative privileges are not created"
+	PASSED for resource: module.lambda.aws_iam_policy_document.sqs_policy
+	File: /modules/lambda/iam.tf:14-22
+	Calling File: /main.tf:26-35
+Check: CKV_AWS_110: "Ensure IAM policies does not allow privilege escalation"
+	PASSED for resource: module.lambda.aws_iam_policy_document.sqs_policy
+	File: /modules/lambda/iam.tf:14-22
+	Calling File: /main.tf:26-35
+Check: CKV_AWS_108: "Ensure IAM policies does not allow data exfiltration"
+	PASSED for resource: module.lambda.aws_iam_policy_document.sqs_read_policy
+	File: /modules/lambda/iam.tf:24-39
+	Calling File: /main.tf:26-35
+Check: CKV_AWS_111: "Ensure IAM policies does not allow write access without constraints"
+	PASSED for resource: module.lambda.aws_iam_policy_document.sqs_read_policy
+	File: /modules/lambda/iam.tf:24-39
+	Calling File: /main.tf:26-35
+Check: CKV_AWS_49: "Ensure no IAM policies documents allow "*" as a statement's actions"
+	PASSED for resource: module.lambda.aws_iam_policy_document.sqs_read_policy
+	File: /modules/lambda/iam.tf:24-39
+	Calling File: /main.tf:26-35
+Check: CKV_AWS_107: "Ensure IAM policies does not allow credentials exposure"
+	PASSED for resource: module.lambda.aws_iam_policy_document.sqs_read_policy
+	File: /modules/lambda/iam.tf:24-39
+	Calling File: /main.tf:26-35
+Check: CKV_AWS_356: "Ensure no IAM policies documents allow "*" as a statement's resource for restrictable actions"
+	PASSED for resource: module.lambda.aws_iam_policy_document.sqs_read_policy
+	File: /modules/lambda/iam.tf:24-39
+	Calling File: /main.tf:26-35
+Check: CKV_AWS_109: "Ensure IAM policies does not allow permissions management / resource exposure without constraints"
+	PASSED for resource: module.lambda.aws_iam_policy_document.sqs_read_policy
+	File: /modules/lambda/iam.tf:24-39
+	Calling File: /main.tf:26-35
+Check: CKV_AWS_283: "Ensure no IAM policies documents allow ALL or any AWS principal permissions to the resource"
+	PASSED for resource: module.lambda.aws_iam_policy_document.sqs_read_policy
+	File: /modules/lambda/iam.tf:24-39
+	Calling File: /main.tf:26-35
+Check: CKV_AWS_1: "Ensure IAM policies that allow full "*-*" administrative privileges are not created"
+	PASSED for resource: module.lambda.aws_iam_policy_document.sqs_read_policy
+	File: /modules/lambda/iam.tf:24-39
+	Calling File: /main.tf:26-35
+Check: CKV_AWS_110: "Ensure IAM policies does not allow privilege escalation"
+	PASSED for resource: module.lambda.aws_iam_policy_document.sqs_read_policy
+	File: /modules/lambda/iam.tf:24-39
+	Calling File: /main.tf:26-35
+Check: CKV_AWS_41: "Ensure no hard coded AWS access key and secret key exists in provider"
+	PASSED for resource: module.lambda.aws.default
+	File: /modules/lambda/main.tf:1-3
+	Calling File: /main.tf:26-35
+Check: CKV_AWS_45: "Ensure no hard-coded secrets exist in lambda environment"
+	PASSED for resource: module.lambda.aws_lambda_function.http_lambda
+	File: /modules/lambda/main.tf:23-36
+	Calling File: /main.tf:26-35
+Check: CKV_AWS_45: "Ensure no hard-coded secrets exist in lambda environment"
+	PASSED for resource: module.lambda.aws_lambda_function.event_to_s3_lambda
+	File: /modules/lambda/main.tf:44-51
+	Calling File: /main.tf:26-35
+Check: CKV2_AWS_40: "Ensure AWS IAM policy does not allow full IAM privileges"
+	PASSED for resource: module.lambda.aws_iam_policy_document.assume_role
+	File: /modules/lambda/iam.tf:1-12
+Check: CKV2_AWS_40: "Ensure AWS IAM policy does not allow full IAM privileges"
+	PASSED for resource: module.lambda.aws_iam_policy_document.sqs_policy
+	File: /modules/lambda/iam.tf:14-22
+Check: CKV2_AWS_40: "Ensure AWS IAM policy does not allow full IAM privileges"
+	PASSED for resource: module.lambda.aws_iam_policy_document.sqs_read_policy
+	File: /modules/lambda/iam.tf:24-39
+Check: CKV_AWS_27: "Ensure all data stored in the SQS queue is encrypted"
+	FAILED for resource: module.event_storage.aws_sqs_queue.terraform_queue
+	File: /modules/event_storage/main.tf:5-11
+	Calling File: /main.tf:20-24
+
+		5  | resource "aws_sqs_queue" "terraform_queue" {
+		6  |   name                      = "queue-${var.prefix}"
+		7  |   delay_seconds             = 10
+		8  |   max_message_size          = 2048
+		9  |   message_retention_seconds = 8640
+		10 |   receive_wait_time_seconds = 8
+		11 | }
+
+Check: CKV_AWS_50: "X-ray tracing is enabled for Lambda"
+	FAILED for resource: module.lambda.aws_lambda_function.http_lambda
+	File: /modules/lambda/main.tf:23-36
+	Calling File: /main.tf:26-35
+
+		23 | resource "aws_lambda_function" "http_lambda" {
+		24 |   filename      = "HttpFunc.zip"
+		25 |   function_name = "http_lambda_${var.prefix}"
+		26 |   role          = aws_iam_role.iam_for_http_lambda.arn
+		27 |   handler       = "HttpFunc.send_to_sqs_on_http_trigger"
+		28 | 
+		29 |   runtime = "python3.10"
+		30 | 
+		31 |   environment {
+		32 |     variables = {
+		33 |       SQS_URL = var.sqs_queue_id
+		34 |     }
+		35 |   }
+		36 | }
+
+Check: CKV_AWS_117: "Ensure that AWS Lambda function is configured inside a VPC"
+	FAILED for resource: module.lambda.aws_lambda_function.http_lambda
+	File: /modules/lambda/main.tf:23-36
+	Calling File: /main.tf:26-35
+
+		23 | resource "aws_lambda_function" "http_lambda" {
+		24 |   filename      = "HttpFunc.zip"
+		25 |   function_name = "http_lambda_${var.prefix}"
+		26 |   role          = aws_iam_role.iam_for_http_lambda.arn
+		27 |   handler       = "HttpFunc.send_to_sqs_on_http_trigger"
+		28 | 
+		29 |   runtime = "python3.10"
+		30 | 
+		31 |   environment {
+		32 |     variables = {
+		33 |       SQS_URL = var.sqs_queue_id
+		34 |     }
+		35 |   }
+		36 | }
+
+Check: CKV_AWS_116: "Ensure that AWS Lambda function is configured for a Dead Letter Queue(DLQ)"
+	FAILED for resource: module.lambda.aws_lambda_function.http_lambda
+	File: /modules/lambda/main.tf:23-36
+	Calling File: /main.tf:26-35
+
+		23 | resource "aws_lambda_function" "http_lambda" {
+		24 |   filename      = "HttpFunc.zip"
+		25 |   function_name = "http_lambda_${var.prefix}"
+		26 |   role          = aws_iam_role.iam_for_http_lambda.arn
+		27 |   handler       = "HttpFunc.send_to_sqs_on_http_trigger"
+		28 | 
+		29 |   runtime = "python3.10"
+		30 | 
+		31 |   environment {
+		32 |     variables = {
+		33 |       SQS_URL = var.sqs_queue_id
+		34 |     }
+		35 |   }
+		36 | }
+
+Check: CKV_AWS_173: "Check encryption settings for Lambda environmental variable"
+	FAILED for resource: module.lambda.aws_lambda_function.http_lambda
+	File: /modules/lambda/main.tf:23-36
+	Calling File: /main.tf:26-35
+
+		23 | resource "aws_lambda_function" "http_lambda" {
+		24 |   filename      = "HttpFunc.zip"
+		25 |   function_name = "http_lambda_${var.prefix}"
+		26 |   role          = aws_iam_role.iam_for_http_lambda.arn
+		27 |   handler       = "HttpFunc.send_to_sqs_on_http_trigger"
+		28 | 
+		29 |   runtime = "python3.10"
+		30 | 
+		31 |   environment {
+		32 |     variables = {
+		33 |       SQS_URL = var.sqs_queue_id
+		34 |     }
+		35 |   }
+		36 | }
+
+Check: CKV_AWS_272: "Ensure AWS Lambda function is configured to validate code-signing"
+	FAILED for resource: module.lambda.aws_lambda_function.http_lambda
+	File: /modules/lambda/main.tf:23-36
+	Calling File: /main.tf:26-35
+
+		23 | resource "aws_lambda_function" "http_lambda" {
+		24 |   filename      = "HttpFunc.zip"
+		25 |   function_name = "http_lambda_${var.prefix}"
+		26 |   role          = aws_iam_role.iam_for_http_lambda.arn
+		27 |   handler       = "HttpFunc.send_to_sqs_on_http_trigger"
+		28 | 
+		29 |   runtime = "python3.10"
+		30 | 
+		31 |   environment {
+		32 |     variables = {
+		33 |       SQS_URL = var.sqs_queue_id
+		34 |     }
+		35 |   }
+		36 | }
+
+Check: CKV_AWS_115: "Ensure that AWS Lambda function is configured for function-level concurrent execution limit"
+	FAILED for resource: module.lambda.aws_lambda_function.http_lambda
+	File: /modules/lambda/main.tf:23-36
+	Calling File: /main.tf:26-35
+
+		23 | resource "aws_lambda_function" "http_lambda" {
+		24 |   filename      = "HttpFunc.zip"
+		25 |   function_name = "http_lambda_${var.prefix}"
+		26 |   role          = aws_iam_role.iam_for_http_lambda.arn
+		27 |   handler       = "HttpFunc.send_to_sqs_on_http_trigger"
+		28 | 
+		29 |   runtime = "python3.10"
+		30 | 
+		31 |   environment {
+		32 |     variables = {
+		33 |       SQS_URL = var.sqs_queue_id
+		34 |     }
+		35 |   }
+		36 | }
+
+Check: CKV_AWS_258: "Ensure that Lambda function URLs AuthType is not None"
+	FAILED for resource: module.lambda.aws_lambda_function_url.http_lambda_function_url
+	File: /modules/lambda/main.tf:38-41
+	Calling File: /main.tf:26-35
+
+		38 | resource "aws_lambda_function_url" "http_lambda_function_url" {
+		39 |   function_name      = aws_lambda_function.http_lambda.function_name
+		40 |   authorization_type = "NONE"
+		41 | }
+
+Check: CKV_AWS_50: "X-ray tracing is enabled for Lambda"
+	FAILED for resource: module.lambda.aws_lambda_function.event_to_s3_lambda
+	File: /modules/lambda/main.tf:44-51
+	Calling File: /main.tf:26-35
+
+		44 | resource "aws_lambda_function" "event_to_s3_lambda" {
+		45 |   filename      = "EventToS3.zip"
+		46 |   function_name = "event_to_s3_lambda_${var.prefix}"
+		47 |   role          = aws_iam_role.iam_for_event_lambda.arn
+		48 |   handler       = "EventToS3.sqs_to_s3"
+		49 | 
+		50 |   runtime = "python3.10"
+		51 | }
+
+Check: CKV_AWS_117: "Ensure that AWS Lambda function is configured inside a VPC"
+	FAILED for resource: module.lambda.aws_lambda_function.event_to_s3_lambda
+	File: /modules/lambda/main.tf:44-51
+	Calling File: /main.tf:26-35
+
+		44 | resource "aws_lambda_function" "event_to_s3_lambda" {
+		45 |   filename      = "EventToS3.zip"
+		46 |   function_name = "event_to_s3_lambda_${var.prefix}"
+		47 |   role          = aws_iam_role.iam_for_event_lambda.arn
+		48 |   handler       = "EventToS3.sqs_to_s3"
+		49 | 
+		50 |   runtime = "python3.10"
+		51 | }
+
+Check: CKV_AWS_116: "Ensure that AWS Lambda function is configured for a Dead Letter Queue(DLQ)"
+	FAILED for resource: module.lambda.aws_lambda_function.event_to_s3_lambda
+	File: /modules/lambda/main.tf:44-51
+	Calling File: /main.tf:26-35
+
+		44 | resource "aws_lambda_function" "event_to_s3_lambda" {
+		45 |   filename      = "EventToS3.zip"
+		46 |   function_name = "event_to_s3_lambda_${var.prefix}"
+		47 |   role          = aws_iam_role.iam_for_event_lambda.arn
+		48 |   handler       = "EventToS3.sqs_to_s3"
+		49 | 
+		50 |   runtime = "python3.10"
+		51 | }
+
+Check: CKV_AWS_272: "Ensure AWS Lambda function is configured to validate code-signing"
+	FAILED for resource: module.lambda.aws_lambda_function.event_to_s3_lambda
+	File: /modules/lambda/main.tf:44-51
+	Calling File: /main.tf:26-35
+
+		44 | resource "aws_lambda_function" "event_to_s3_lambda" {
+		45 |   filename      = "EventToS3.zip"
+		46 |   function_name = "event_to_s3_lambda_${var.prefix}"
+		47 |   role          = aws_iam_role.iam_for_event_lambda.arn
+		48 |   handler       = "EventToS3.sqs_to_s3"
+		49 | 
+		50 |   runtime = "python3.10"
+		51 | }
+
+Check: CKV_AWS_115: "Ensure that AWS Lambda function is configured for function-level concurrent execution limit"
+	FAILED for resource: module.lambda.aws_lambda_function.event_to_s3_lambda
+	File: /modules/lambda/main.tf:44-51
+	Calling File: /main.tf:26-35
+
+		44 | resource "aws_lambda_function" "event_to_s3_lambda" {
+		45 |   filename      = "EventToS3.zip"
+		46 |   function_name = "event_to_s3_lambda_${var.prefix}"
+		47 |   role          = aws_iam_role.iam_for_event_lambda.arn
+		48 |   handler       = "EventToS3.sqs_to_s3"
+		49 | 
+		50 |   runtime = "python3.10"
+		51 | }
+
+

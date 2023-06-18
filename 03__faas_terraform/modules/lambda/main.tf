@@ -25,6 +25,7 @@ resource "aws_lambda_function" "http_lambda" {
   function_name = "http_lambda_${var.prefix}"
   role          = aws_iam_role.iam_for_http_lambda.arn
   handler       = "HttpFunc.send_to_sqs_on_http_trigger"
+  reserved_concurrent_executions = 2
 
   runtime = "python3.10"
 
@@ -46,6 +47,7 @@ resource "aws_lambda_function" "event_to_s3_lambda" {
   function_name = "event_to_s3_lambda_${var.prefix}"
   role          = aws_iam_role.iam_for_event_lambda.arn
   handler       = "EventToS3.sqs_to_s3"
+  reserved_concurrent_executions = 2
 
   runtime = "python3.10"
 }
