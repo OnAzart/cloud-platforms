@@ -9,3 +9,8 @@ Scans cloud infrastructure configurations to find misconfigurations. *Terraform,
 ### Fixed:
 - SQS query encrypted
 - Concurrency of both lambda functions is limited to 2
+
+### Important from lection:
+- (Almost) each cloud has built-in policy-engines. 
+- (Almost) each tool/framework has own policy-engine. 
+- There are also open source solutions, for example, Open Policy Agent, Checkov, Polaris to name a few.
