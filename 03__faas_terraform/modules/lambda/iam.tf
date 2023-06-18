@@ -11,13 +11,27 @@ data "aws_iam_policy_document" "assume_role" {
   }
 }
 
+data "aws_iam_policy_document" "log_group_policy" {
+  statement {
+    effect = "Allow"
+    actions = ["logs:CreateLogGroup"]
+    resources = ["arn:aws:logs:${var.region}:${var.account_id}:*"]
+  }
+
+  statement {
+    effect = "Allow"
+    actions = ["logs:CreateLogStream",
+               "logs:PutLogEvents"]
+    resources = ["arn:aws:logs:${var.region}:${var.account_id}:log-group:*:*"]
+  }
+}
+
 data "aws_iam_policy_document" "sqs_policy" {
   statement {
     effect = "Allow"
     actions = ["sqs:SendMessage"]
     resources = [
-      "arn:aws:sqs:${var.region}:${var.account_id}:${var.sqs_name}",
-      "logs:CreateLogGroup"
+      "arn:aws:sqs:${var.region}:${var.account_id}:${var.sqs_name}"
     ]
   }
 }
@@ -30,8 +44,7 @@ data "aws_iam_policy_document" "sqs_read_policy" {
       "sqs:DeleteMessage",
       "sqs:GetQueueAttributes",
       "sqs:ReceiveMessage",
-      "s3:PutObject",
-      "logs:CreateLogGroup"
+      "s3:PutObject"
     ]
     resources = [
       "arn:aws:sqs:${var.region}:${var.account_id}:${var.sqs_name}",
@@ -48,6 +61,11 @@ resource "aws_iam_role" "iam_for_http_lambda" {
     name   = "sqs_${var.prefix}_policy"
     policy = data.aws_iam_policy_document.sqs_policy.json
   }
+
+  inline_policy {
+    name   = "httplambda_${var.prefix}_logs_policy"
+    policy = data.aws_iam_policy_document.log_group_policy.json
+  }
 }
 
 resource "aws_iam_role" "iam_for_event_lambda" {
@@ -58,4 +76,24 @@ resource "aws_iam_role" "iam_for_event_lambda" {
     name   = "sqs_read_policy"
     policy = data.aws_iam_policy_document.sqs_read_policy.json
   }
+
+  inline_policy {
+    name   = "eventlambda_${var.prefix}_logs_policy"
+    policy = data.aws_iam_policy_document.log_group_policy.json
+  }
+}
+
+resource "aws_iam_policy" "log_group_policy" {
+  name   = "lambda_${var.prefix}_logs_policy"
+  policy = data.aws_iam_policy_document.log_group_policy.json
+}
+
+resource "aws_iam_role_policy_attachment" "http_attachment_logs" {
+  role       = aws_iam_role.iam_for_http_lambda.name
+  policy_arn = aws_iam_policy.log_group_policy.arn
+}
+
+resource "aws_iam_role_policy_attachment" "event_attachment_logs" {
+  role       = aws_iam_role.iam_for_event_lambda.name
+  policy_arn = aws_iam_policy.log_group_policy.arn
 }
