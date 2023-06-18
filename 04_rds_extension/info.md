@@ -5,7 +5,6 @@
 3. Set up instance 
    - sudo dnf install postgresql15
    - psql --host=<RDS_ENDPOINT> --port=<RDS_PORT> --username=<DB_USERNAME> --password
-   - psql --host=first-df.cvxtxzqai9xw.us-east-2.rds.amazonaws.com --port=5432 --username=postgres --password
 4. Create table 
    - CREATE TABLE id_table (id VARCHAR(100) PRIMARY KEY);
    - check for existence: *\d id_table*
