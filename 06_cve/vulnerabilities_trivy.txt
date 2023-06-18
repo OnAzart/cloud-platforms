@@ -1,0 +1,14 @@
+Total: 85 (UNKNOWN: 0, LOW: 65, MEDIUM: 2, HIGH: 17, CRITICAL: 1)
+│ bash             │ CVE-2022-3715    │ HIGH     │ 5.1-2+deb11u1          │                  │ a heap-buffer-overflow in valid_parameter_transform          │
+│ e2fsprogs        │ CVE-2022-1304    │ HIGH     │ 1.46.2-2               │                  │ e2fsprogs: out-of-bounds read/write via crafted filesystem   │
+│ libcom-err2      │ CVE-2022-1304    │ HIGH     │ 1.46.2-2               │                  │ e2fsprogs: out-of-bounds read/write via crafted filesystem   │
+│ libdb5.3         │ CVE-2019-8457    │ CRITICAL │ 5.3.28+dfsg1-0.8       │                  │ sqlite: heap out-of-bound read in function rtreenode()       │
+│ libext2fs2       │ CVE-2022-1304    │ HIGH     │ 1.46.2-2               │                  │ e2fsprogs: out-of-bounds read/write via crafted filesystem   │
+│ libncursesw6     │ CVE-2023-29491   │ HIGH     │ 6.2+20201114-2+deb11u1 │                  │ Local users can trigger security-relevant memory corruption  │
+│ libsqlite3-0     │ CVE-2021-31239   │ HIGH     │ 3.34.1-3               │                  │ denial of service via the appendvfs.c function               │
+│ libss2           │ CVE-2022-1304    │ HIGH     │ 1.46.2-2               │                  │ e2fsprogs: out-of-bounds read/write via crafted filesystem   │
+│ libtinfo6        │ CVE-2023-29491   │ HIGH     │ 6.2+20201114-2+deb11u1 │                  │ Local users can trigger security-relevant memory corruption  │
+│ libzstd1         │ CVE-2022-4899    │ HIGH     │ 1.4.8+dfsg-2.1         │                  │ buffer overrun in util.c                                     │
+│ logsave          │ CVE-2022-1304    │ HIGH     │ 1.46.2-2               │                  │ e2fsprogs: out-of-bounds read/write via crafted filesystem   │
+│ ncurses-base     │ CVE-2023-29491   │ HIGH     │ 6.2+20201114-2+deb11u1 │                  │ Local users can trigger security-relevant memory corruption  │
+│ perl-base        │ CVE-2020-16156   │ HIGH     │ 5.32.1-4+deb11u2       │                  │ perl-CPAN: Bypass of verification of signatures in CHECKSUMS │

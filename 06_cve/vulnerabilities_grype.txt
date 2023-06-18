@@ -1,0 +1,26 @@
+bash              5.1-2+deb11u1           (won't fix)       deb     CVE-2022-3715     High        
+docker            6.1.3                                     python  CVE-2019-13139    High        
+docker            6.1.3                                     python  CVE-2019-13509    High        
+docker            6.1.3                                     python  CVE-2019-16884    High        
+docker            6.1.3                                     python  CVE-2019-5736     High        
+e2fsprogs         1.46.2-2                (won't fix)       deb     CVE-2022-1304     High        
+libcom-err2       1.46.2-2                (won't fix)       deb     CVE-2022-1304     High        
+libdb5.3          5.3.28+dfsg1-0.8        (won't fix)       deb     CVE-2019-8457     Critical    
+libext2fs2        1.46.2-2                (won't fix)       deb     CVE-2022-1304     High        
+libgcrypt20       1.8.7-6                 (won't fix)       deb     CVE-2021-33560    High        
+libncursesw6      6.2+20201114-2+deb11u1  (won't fix)       deb     CVE-2023-29491    High        
+libsqlite3-0      3.34.1-3                (won't fix)       deb     CVE-2021-31239    High        
+libss2            1.46.2-2                (won't fix)       deb     CVE-2022-1304     High        
+libssl1.1         1.1.1n-0+deb11u4        1.1.1n-0+deb11u5  deb     CVE-2023-0464     High        
+libssl1.1         1.1.1n-0+deb11u4        1.1.1n-0+deb11u5  deb     CVE-2023-2650     High        
+libtinfo6         6.2+20201114-2+deb11u1  (won't fix)       deb     CVE-2023-29491    High        
+libzstd1          1.4.8+dfsg-2.1          (won't fix)       deb     CVE-2022-4899     High        
+logsave           1.46.2-2                (won't fix)       deb     CVE-2022-1304     High        
+ncurses-base      6.2+20201114-2+deb11u1  (won't fix)       deb     CVE-2023-29491    High        
+ncurses-bin       6.2+20201114-2+deb11u1  (won't fix)       deb     CVE-2023-29491    High        
+openssl           1.1.1n-0+deb11u4        1.1.1n-0+deb11u5  deb     CVE-2023-0464     High        
+openssl           1.1.1n-0+deb11u4        1.1.1n-0+deb11u5  deb     CVE-2023-2650     High        
+perl-base         5.32.1-4+deb11u2        (won't fix)       deb     CVE-2020-16156    High        
+perl-base         5.32.1-4+deb11u2        (won't fix)       deb     CVE-2023-31484    High        
+pip               23.0.1                                    python  CVE-2018-20225    High        
+python            3.10.12                                   binary  CVE-2023-24329    High        
