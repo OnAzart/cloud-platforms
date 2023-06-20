@@ -1,3 +1,3 @@
-#output "http_function_url" {
-#  value = aws_lambda_function.http_lambda.this[0].function_url
-#}
+output "http_function_url" {
+  value = aws_lambda_function_url.http_lambda_function_url.function_url
+}
